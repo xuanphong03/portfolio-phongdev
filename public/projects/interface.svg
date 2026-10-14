@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#2f62ff"/>
+  <path d="M0 0h1400v900H0z" fill="url(#g)" opacity=".7"/>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5180ff"/><stop offset="1" stop-color="#1739b7"/></linearGradient></defs>
+  <g stroke="#fff" stroke-opacity=".28" fill="none"><path d="M0 150h1400M0 300h1400M0 450h1400M0 600h1400M0 750h1400M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900M1200 0v900"/></g>
+  <g transform="translate(160 105)">
+    <rect width="1080" height="690" rx="22" fill="#eef2ff"/>
+    <rect width="1080" height="68" rx="22" fill="#11182d"/>
+    <circle cx="32" cy="34" r="8" fill="#ff6d5a"/><circle cx="58" cy="34" r="8" fill="#ffd45a"/><circle cx="84" cy="34" r="8" fill="#7adc69"/>
+    <rect x="25" y="94" width="220" height="570" rx="13" fill="#dbe3fc"/>
+    <rect x="276" y="94" width="770" height="220" rx="13" fill="#fff"/>
+    <rect x="305" y="124" width="90" height="16" rx="8" fill="#2f62ff"/><rect x="305" y="164" width="400" height="31" rx="5" fill="#11182d"/>
+    <rect x="305" y="218" width="570" height="12" rx="6" fill="#c4cce4"/><rect x="305" y="244" width="490" height="12" rx="6" fill="#c4cce4"/>
+    <rect x="276" y="340" width="370" height="324" rx="13" fill="#11182d"/>
+    <circle cx="461" cy="478" r="91" fill="none" stroke="#2f62ff" stroke-width="30" stroke-dasharray="420 150"/>
+    <rect x="671" y="340" width="375" height="324" rx="13" fill="#fff"/>
+    <rect x="700" y="379" width="170" height="18" rx="9" fill="#11182d"/><path d="M710 590 770 525l55 32 73-99 76 55" fill="none" stroke="#2f62ff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="95" y="85" font-family="Arial" font-size="21" fill="#fff" letter-spacing="4">SYSTEM / CALM BY DESIGN</text>
+</svg>

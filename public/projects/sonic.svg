@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#eee5d1"/>
+  <rect x="48" y="48" width="1304" height="804" fill="none" stroke="#14110f" stroke-width="3"/>
+  <text x="80" y="102" font-family="Arial" font-size="20" fill="#14110f" letter-spacing="5">SONIC STUDIES / 001—026</text>
+  <g transform="translate(0 450)" fill="#ee4938">
+    <path d="M0 0q45-250 90 0t90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0 90 0v240H0Z"/>
+  </g>
+  <g fill="none" stroke="#14110f" stroke-width="8">
+    <path d="M90 450c90-330 130 330 220 0s130 330 220 0 130 330 220 0 130 330 220 0 130 330 220 0 130 330 220 0"/>
+    <circle cx="700" cy="450" r="250" stroke-width="2"/><circle cx="700" cy="450" r="170" stroke-width="2"/>
+  </g>
+  <circle cx="700" cy="450" r="70" fill="#14110f"/>
+  <text x="700" y="470" font-family="Arial" font-size="42" font-weight="700" fill="#eee5d1" text-anchor="middle">PLAY</text>
+  <text x="80" y="810" font-family="Arial" font-size="86" font-weight="900" fill="#14110f">SOUND, MADE VISIBLE.</text>
+</svg>

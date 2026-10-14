@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#bedb32"/>
+  <path d="M0 690 1400 420v480H0Z" fill="#a5c123"/>
+  <circle cx="1070" cy="180" r="310" fill="#d8ef63" opacity=".75"/>
+  <g transform="translate(610 58) rotate(8 230 390)">
+    <rect width="460" height="780" rx="8" fill="#151714"/>
+    <rect x="22" y="22" width="416" height="488" fill="#e8e4dc"/>
+    <path d="M118 510c4-210 46-333 112-333s110 123 114 333" fill="#373a35"/>
+    <circle cx="230" cy="144" r="61" fill="#676d61"/>
+    <path d="M180 223h100l53 287H127Z" fill="#252824"/>
+    <text x="30" y="562" font-family="Arial" font-size="18" fill="#bedb32" letter-spacing="4">NEW ARRIVAL / 026</text>
+    <text x="30" y="640" font-family="Arial" font-size="47" font-weight="700" fill="#f3f0e9">FORM</text>
+    <text x="30" y="690" font-family="Arial" font-size="47" font-weight="700" fill="#f3f0e9">FOLLOWS YOU.</text>
+    <rect x="30" y="726" width="170" height="35" rx="18" fill="#bedb32"/>
+    <text x="57" y="750" font-family="Arial" font-size="14" fill="#151714">EXPLORE EDIT</text>
+  </g>
+  <g fill="#171914" font-family="Arial" font-weight="700">
+    <text x="70" y="95" font-size="22" letter-spacing="5">FORM®</text>
+    <text x="70" y="790" font-size="104">OBJECTS</text>
+    <text x="70" y="865" font-size="104">WITH INTENT.</text>
+  </g>
+</svg>

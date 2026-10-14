@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Phong Nguyen — Creative Developer Portfolio
 
-## Getting Started
+Premium one-page portfolio built with Next.js App Router, TypeScript, Tailwind CSS, GSAP + ScrollTrigger and Lenis.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). If that port is occupied, Next.js prints the available port in the terminal.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production validation:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Customize content
 
-To learn more about Next.js, take a look at the following resources:
+All portfolio copy and links are centralized in [`data/portfolio.ts`](data/portfolio.ts):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Name, role, location and email: `portfolio.person`
+- Hero and about copy: `portfolio.hero` / `portfolio.about`
+- Skills: `portfolio.skills`
+- Projects, demo links and GitHub links: `portfolio.projects`
+- Work history: `portfolio.experience`
+- Social links: `portfolio.socials`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace project artwork in [`public/projects`](public/projects) and keep the corresponding `image` paths in `data/portfolio.ts` in sync. Update `metadataBase` and SEO fields in [`app/layout.tsx`](app/layout.tsx) before deploying to your own domain.
 
-## Deploy on Vercel
+## Motion and accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GSAP effects use `useGSAP`/scoped contexts for automatic cleanup.
+- Desktop projects use a pinned horizontal ScrollTrigger experience; screens below 900px use a vertical list.
+- `prefers-reduced-motion` disables the intro, smooth scrolling, cursor and motion timelines while retaining all content.
+- Focus states, skip navigation, semantic landmarks, keyboard-operable mobile navigation and meaningful image alt text are included.

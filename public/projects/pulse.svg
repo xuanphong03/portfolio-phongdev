@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#c5ff45"/>
+  <path d="M0 0h480l360 900H360Z" fill="#7b50e8"/>
+  <g transform="translate(220 105)">
+    <rect width="960" height="690" rx="18" fill="#111310"/>
+    <rect x="28" y="28" width="180" height="634" rx="10" fill="#1c201a"/>
+    <circle cx="62" cy="66" r="14" fill="#c5ff45"/><text x="90" y="73" fill="#f4f4ee" font-family="Arial" font-size="20" font-weight="700">PULSE</text>
+    <g fill="#767c70"><rect x="48" y="130" width="120" height="12" rx="6"/><rect x="48" y="175" width="92" height="12" rx="6"/><rect x="48" y="220" width="108" height="12" rx="6"/></g>
+    <text x="245" y="75" fill="#f4f4ee" font-family="Arial" font-size="25" font-weight="700">Operations overview</text>
+    <rect x="245" y="110" width="325" height="230" rx="10" fill="#1c201a"/><rect x="592" y="110" width="340" height="230" rx="10" fill="#1c201a"/>
+    <path d="M275 286 324 245l55 17 64-91 47 28 50-51" fill="none" stroke="#c5ff45" stroke-width="8"/>
+    <circle cx="762" cy="220" r="75" fill="none" stroke="#7b50e8" stroke-width="24" stroke-dasharray="310 170"/>
+    <rect x="245" y="365" width="687" height="297" rx="10" fill="#1c201a"/>
+    <g fill="#7b50e8"><rect x="290" y="525" width="42" height="85"/><rect x="355" y="475" width="42" height="135"/><rect x="420" y="420" width="42" height="190"/><rect x="485" y="510" width="42" height="100"/></g>
+    <g fill="#c5ff45"><rect x="580" y="455" width="42" height="155"/><rect x="645" y="405" width="42" height="205"/><rect x="710" y="505" width="42" height="105"/><rect x="775" y="440" width="42" height="170"/></g>
+  </g>
+</svg>
