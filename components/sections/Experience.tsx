@@ -13,20 +13,38 @@ export function Experience() {
 
   useGSAP(
     () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.fromTo("[data-timeline-line]", { scaleY: 0 }, {
-        scaleY: 1,
-        transformOrigin: "top",
-        ease: "none",
-        scrollTrigger: { trigger: "[data-timeline]", start: "top 75%", end: "bottom 70%", scrub: true },
-      });
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) return;
+
+      // Đường timeline dọc kéo dài mượt mà theo bước cuộn
+      gsap.fromTo(
+        "[data-timeline-line]",
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          transformOrigin: "top",
+          ease: "none",
+          scrollTrigger: {
+            trigger: "[data-timeline]",
+            start: "top 78%",
+            end: "bottom 70%",
+            scrub: 0.5,
+          },
+        },
+      );
+
+      // Các mục xuất hiện tuần tự mượt mà khi người dùng cuộn tới
       gsap.from("[data-experience-item]", {
-        x: 34,
+        y: 30,
         opacity: 0,
-        duration: 0.85,
-        stagger: 0.18,
-        ease: "power3.out",
-        scrollTrigger: { trigger: "[data-timeline]", start: "top 72%", once: true },
+        duration: 0.75,
+        stagger: 0.14,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "[data-timeline]",
+          start: "top 76%",
+          once: true,
+        },
       });
     },
     { scope: root },

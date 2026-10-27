@@ -11,24 +11,48 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export function Contact() {
   const root = useRef<HTMLElement>(null);
+  const orbRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) return;
+
+      const mm = gsap.matchMedia();
+
+      // Xuất hiện tiêu đề
       gsap.from("[data-contact-line] > span", {
         yPercent: 110,
-        duration: 1.1,
-        stagger: 0.1,
-        ease: "power4.out",
-        scrollTrigger: { trigger: root.current, start: "top 62%", once: true },
-      });
-      gsap.from("[data-contact-meta]", {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
+        duration: 0.95,
+        stagger: 0.08,
         ease: "power3.out",
-        scrollTrigger: { trigger: "[data-contact-meta-wrap]", start: "top 86%", once: true },
+        scrollTrigger: { trigger: root.current, start: "top 68%", once: true },
+      });
+
+      gsap.from("[data-contact-meta]", {
+        y: 25,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: "power2.out",
+        scrollTrigger: { trigger: "[data-contact-meta-wrap]", start: "top 88%", once: true },
+      });
+
+      // Desktop riêng biệt
+      mm.add("(min-width: 900px) and (pointer: fine)", () => {
+        if (orbRef.current) {
+          gsap.to(orbRef.current, {
+            yPercent: 20,
+            scale: 1.15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: root.current,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 0.6,
+            },
+          });
+        }
       });
     },
     { scope: root },
@@ -36,7 +60,7 @@ export function Contact() {
 
   return (
     <section ref={root} id="contact" className="contact" aria-labelledby="contact-title">
-      <div className="contact__orb" aria-hidden="true" />
+      <div ref={orbRef} className="contact__orb" aria-hidden="true" style={{ pointerEvents: "none" }} />
       <div className="section-shell contact__inner">
         <div className="section-index section-index--light"><span>05</span><span>Contact</span></div>
         <div className="contact__availability"><i /> {portfolio.person.availability}</div>

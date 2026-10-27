@@ -30,17 +30,34 @@ export function MagneticLink({
     const element = ref.current;
     if (!element) return;
     const rect = element.getBoundingClientRect();
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
+
     gsap.to(element, {
-      x: (event.clientX - rect.left - rect.width / 2) * 0.18,
-      y: (event.clientY - rect.top - rect.height / 2) * 0.18,
+      x: x * 0.24,
+      y: y * 0.24,
       duration: 0.35,
       ease: "power2.out",
     });
+
+    const inner = element.querySelector("span");
+    if (inner) {
+      gsap.to(inner, {
+        x: x * 0.1,
+        y: y * 0.1,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+    }
   };
 
   const onLeave = () => {
     if (!ref.current) return;
-    gsap.to(ref.current, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.35)" });
+    const inner = ref.current.querySelector("span");
+    gsap.to(ref.current, { x: 0, y: 0, duration: 0.75, ease: "elastic.out(1, 0.35)" });
+    if (inner) {
+      gsap.to(inner, { x: 0, y: 0, duration: 0.75, ease: "elastic.out(1, 0.35)" });
+    }
   };
 
   return (

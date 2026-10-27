@@ -6,6 +6,10 @@
             "package": "@opencode/ai/providers/openai-compatible",
             "settings": { "baseURL": "http://127.0.0.1:20128/v1" },
             "models": {
+                "gpt-6-astra": {
+                    "name": "cx/gpt-6-astra",
+                    "modelID": "cx/gpt-6-astra",
+                },
                 "gpt-5.6-sol": {
                     "name": "cx/gpt-5.6-sol",
                     "modelID": "cx/gpt-5.6-sol",
@@ -13,6 +17,10 @@
                 "gemini-3.8-flash-high": {
                     "name": "ag/gemini-3.8-flash-high",
                     "modelID": "ag/gemini-3.8-flash-high",
+                },
+                "gemini-4-argon-high": {
+                    "name": "ag/gemini-4-argon-high",
+                    "modelID": "ag/gemini-4-argon-high",
                 },
                 "claude-sonnet-4.6-thinking": {
                     "name": "ag/claude-sonnet-4-6",
@@ -34,7 +42,7 @@
             },
             "next-devtools": {
                 "type": "local",
-                "command": ["npx", "-y", "next-devtools-mcp@latest"],
+                "command": ["node", ".opencode/mcp/next-devtools.mjs"],
                 "timeout": { "startup": 60000 },
             },
             "playwright": {
@@ -43,14 +51,7 @@
             },
             "figma": {
                 "type": "local",
-                "command": [
-                    "npx",
-                    "-y",
-                    "figma-developer-mcp",
-                    "--stdio",
-                    "--env",
-                    ".env.local",
-                ],
+                "command": ["npx", "-y", "figma-developer-mcp", "--stdio", "--env", ".env.local"],
                 "timeout": {
                     "startup": 120000,
                 },

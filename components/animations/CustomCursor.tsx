@@ -41,12 +41,24 @@ export function CustomCursor() {
       follower.dataset.visible = "false";
     };
 
+    const onDown = () => {
+      gsap.to(follower, { scale: 0.8, duration: 0.15, ease: "power2.out" });
+    };
+
+    const onUp = () => {
+      gsap.to(follower, { scale: 1, duration: 0.35, ease: "back.out(2)" });
+    };
+
     window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointerup", onUp);
     document.addEventListener("pointerover", onOver);
     document.documentElement.addEventListener("mouseleave", onLeave);
 
     return () => {
       window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointerup", onUp);
       document.removeEventListener("pointerover", onOver);
       document.documentElement.removeEventListener("mouseleave", onLeave);
     };

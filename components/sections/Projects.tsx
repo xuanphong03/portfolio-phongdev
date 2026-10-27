@@ -75,6 +75,7 @@ function ProjectCard({ project }: { project: Project }) {
 export function Projects() {
   const root = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -82,53 +83,77 @@ export function Projects() {
       if (reduceMotion) return;
 
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 900px)", () => {
-        if (!track.current) return;
+
+      // Desktop: Cuộn ngang Pinned mượt mà
+      mm.add("(min-width: 900px) and (pointer: fine)", () => {
+        if (!track.current || !root.current) return;
+
+        const getDistance = () => (track.current ? track.current.scrollWidth - window.innerWidth : 0);
+
         const horizontal = gsap.to(track.current, {
-          x: () => -(track.current!.scrollWidth - window.innerWidth),
+          x: () => -getDistance(),
           ease: "none",
           scrollTrigger: {
             trigger: root.current,
             start: "top top",
-            end: () => `+=${track.current!.scrollWidth - window.innerWidth}`,
+            end: () => `+=${getDistance()}`,
             pin: true,
-            scrub: 0.8,
+            scrub: 1.0,
             invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              if (progressBarRef.current) {
+                progressBarRef.current.style.transform = `scaleX(${self.progress})`;
+              }
+            },
           },
         });
 
+        // Parallax ảnh bên trong thẻ khi trượt ngang
         gsap.utils.toArray<HTMLElement>(".project-card__image").forEach((image) => {
-          gsap.fromTo(image, { xPercent: -5 }, {
-            xPercent: 5,
-            ease: "none",
+          gsap.fromTo(
+            image,
+            { xPercent: -6 },
+            {
+              xPercent: 6,
+              ease: "none",
+              scrollTrigger: {
+                trigger: image.closest(".project-card") ?? image,
+                containerAnimation: horizontal,
+                start: "left right",
+                end: "right left",
+                scrub: true,
+              },
+            },
+          );
+        });
+      });
+
+      // Mobile / Touch: Tối ưu 100% cho màn hình cảm ứng, xuất hiện nhẹ nhàng
+      mm.add("(max-width: 899px), (pointer: coarse)", () => {
+        gsap.utils.toArray<HTMLElement>(".project-card").forEach((card) => {
+          gsap.from(card, {
+            y: 35,
+            opacity: 0,
+            duration: 0.65,
+            ease: "power2.out",
             scrollTrigger: {
-              trigger: image,
-              containerAnimation: horizontal,
-              start: "left right",
-              end: "right left",
-              scrub: true,
+              trigger: card,
+              start: "top 85%",
+              once: true,
             },
           });
         });
       });
-      mm.add("(max-width: 899px)", () => {
-        gsap.utils.toArray<HTMLElement>(".project-card").forEach((card) => {
-          gsap.from(card, {
-            y: 55,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: { trigger: card, start: "top 84%", once: true },
-          });
-        });
-      });
-      return () => mm.revert();
     },
     { scope: root },
   );
 
   return (
     <section ref={root} id="projects" className="projects" aria-labelledby="projects-title">
+      <div className="projects__progress-track" aria-hidden="true">
+        <div ref={progressBarRef} className="projects__progress-bar" data-projects-progress />
+      </div>
+
       <div ref={track} className="projects__track">
         <div className="projects__intro section-shell">
           <div className="section-index"><span>03</span><span>Selected work</span></div>

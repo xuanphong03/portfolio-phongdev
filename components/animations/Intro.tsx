@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export function Intro() {
   const root = useRef<HTMLDivElement>(null);
@@ -35,9 +36,11 @@ export function Intro() {
         .to(root.current, {
           yPercent: -100,
           duration: 0.85,
+          ease: "power3.inOut",
           onComplete: () => {
             document.body.dataset.loading = "false";
             gsap.set(root.current, { display: "none" });
+            ScrollTrigger.refresh();
           },
         }, "<0.08");
     },
